@@ -16,7 +16,6 @@ import           Data.Bool (Bool)
 import           Data.Foldable (Foldable)
 import           Data.Functor (Functor)
 import           Data.Text (Text)
-import qualified Data.Text as T
 import           Data.Traversable (Traversable)
 
 import           Prelude (Eq, Ord, Show)

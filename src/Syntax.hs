@@ -4,7 +4,8 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Syntax (
-    Expr (..)
+    AnnExpr (..)
+  , Expr (..)
   , ExprF (..)
   , PrimV (..)
   , Name (..)
@@ -20,6 +21,11 @@ import           Data.Traversable (Traversable)
 
 import           Prelude (Eq, Ord, Show)
 
+
+-- | An annotated fixpoint of 'ExprF'.
+newtype AnnExpr a = AnnExpr {
+    unAnnExpr :: (a, ExprF (AnnExpr a))
+  } deriving (Eq, Ord, Show, Functor, Foldable, Traversable)
 
 -- | A fixpoint of 'ExprF'.
 newtype Expr = Expr {
